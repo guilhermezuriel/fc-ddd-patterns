@@ -41,6 +41,8 @@ describe('Customer events', () => {
       eventDispatcher.register('CustomerAddressChangedEvent', eventHandler);
 
       expect(eventDispatcher.getEventHandlers['CustomerAddressChangedEvent']).toContain(eventHandler)
+      
+      eventDispatcher.notify(new CustomerAddressChangedEvent(customer));
       expect(spyEventHandler).toHaveBeenCalled();
       
   });
